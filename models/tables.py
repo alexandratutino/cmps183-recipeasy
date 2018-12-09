@@ -37,6 +37,13 @@ db.define_table('post',
                 Field('post_time', 'datetime', update=get_current_time()),
                 )
 
+# db.post.post_author_email.readable = False
+db.post.post_time.readable = db.post.post_time.writable = False
+db.post.post_author.writable = False
+db.post.id.readable = False
+# after defining tables, uncomment below to enable auditing
+# auth.enable_record_versioning(db)
+
 # Replies
 
 db.define_table('reply',
@@ -48,10 +55,3 @@ db.define_table('reply',
 db.reply.reply_author.writable = False
 db.reply.id.readable = False
 
-
-# Stars ratings
-db.define_table('user_star',
-                Field('user_email'), # The user who starred
-                Field('post_id', 'reference post'), # The starred post
-                Field('rating', 'integer', default=None) # The star rating.
-                )
