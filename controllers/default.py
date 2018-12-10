@@ -44,6 +44,10 @@ def index():
     return dict(rows=result)
 
 
+def landing():
+    return dict()
+
+
 @auth.requires_login()
 def add_reply():
     """COMPLETE (and remove line below or replace as appropriate)"""
@@ -168,5 +172,3 @@ def call():
     supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
     """
     return service()
-
-

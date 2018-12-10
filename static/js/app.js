@@ -25,10 +25,10 @@
     // Sync object changes
     dbRefObject.on('value', snap => {
         console.log(snap.val());
-        preObject.innerText = JSON.stringify(snap.val(), null, 3);
-    });
+
 
     dbRefImage.on('value', snap => {
+
         console.log("URL ===> " + snap.val());
         // img_object.innerText = snap.val();
         var img_url = snap.val();
@@ -39,6 +39,7 @@
         img_0.setAttribute('height', '300');
         img_0.alt = 'food';
         result.appendChild(img_0);
+
     });
 
 
@@ -72,3 +73,4 @@ function myFunction() {
 
 
 //// Firebase stuff
+
