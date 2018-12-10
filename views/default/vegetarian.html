@@ -14,7 +14,6 @@
       <div class="cooktime">Cook Time: {{=r['post_cooktime']}}</div>
       <div class="ingredients">ingredients: {{=r['post_ingredients']}}</div>
       <div class="instruction">Instruction: {{=r['post_instruction']}}</div>
-      <img src="{{=URL('default', 'download', args=id)}}" />
       <div class="button_row">
       {{if auth.user is not None and auth.user.email == r['post_author']:}}
         <a href="{{=URL('default', 'edit', args=[r['id']])}}" class="btn">
