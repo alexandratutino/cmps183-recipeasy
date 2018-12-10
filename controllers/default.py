@@ -10,6 +10,38 @@
 
 import datetime
 
+def vegetarian():
+    result = []  # We will accummulate the result here.
+    for r in db(db.post.post_dietary_restriction.contains('Vegetarian')).select():
+        # This is a loop over all the posts.
+
+        # Each post can have replies; you need to read here the list of replies.
+        # As each reply has an author and a content, a list of dictionaries seems
+        # appropriate here.
+        reply_list = []
+        replies = db(db.reply.post_id == r.id).select(orderby=db.reply.reply_time)
+        for reply in replies:
+            reply_list.append(dict(
+                reply_id=reply.id,
+                reply_author=reply.reply_author,
+                reply_content=reply.reply_content,
+            ))
+
+        result.append(dict(
+            post_title=r.post_title,
+            post_author=r.post_author,
+            post_dietary_restriction=r.post_dietary_restriction,
+            post_type_of_meal=r.post_type_of_meal,
+            post_cooktime=r.post_cooktime,
+            post_ingredients=r.post_ingredients,
+            post_instruction=r.post_instruction,
+            reply_list=reply_list,
+            id=r.id,
+        ))
+
+    logger.info("Result: %r" % result)
+    return dict(rows=result)
+
 
 def index():
     result = []  # We will accummulate the result here.
@@ -42,10 +74,6 @@ def index():
 
     logger.info("Result: %r" % result)
     return dict(rows=result)
-
-
-def landing():
-    return dict()
 
 
 @auth.requires_login()
@@ -101,7 +129,8 @@ def delete_reply():
 @auth.requires_login()
 def add():
     """More sophisticated way, in which we use web2py to come up with the form."""
-    form = SQLFORM(db.post)
+    record = db.post(request.args(0))
+    form = SQLFORM(db.post, record, upload=URL('download'))
     # We can process the form.  This will check that the request is a POST,
     # and also perform validation, but in this case there is no validation.
     # THIS process() also inserts.
@@ -172,3 +201,5 @@ def call():
     supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
     """
     return service()
+
+
