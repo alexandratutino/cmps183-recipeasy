@@ -21,8 +21,10 @@
         <div class="images">
             <div class="test1">
             {{if r['post_dietary_restriction'] == "Vegetarian":}}
+            
                 <img src="{{=URL('static','images/Vegetarian.jpg')}}" alt="Vegetarian">
-
+            
+                
             {{pass}}
             {{if r['post_dietary_restriction'] == "Vegan":}}
                 <img src="{{=URL('static','images/Vegan.jpg')}}" alt="Vegan">
@@ -49,10 +51,42 @@
 
             {{pass}}
             </div>
+        <div class="test2">
+            {{if r['post_dietary_restriction'] == "Vegetarian":}}
+            
+                <img src="{{=URL('static','images/Vegetarian_2.jpg')}}" alt="Vegetarian">
+            
+            {{pass}}
+            {{if r['post_dietary_restriction'] == "Vegan":}}
+                <img src="{{=URL('static','images/Vegan.jpg')}}" alt="Vegan">
 
-            <div id="test2"></div>
-            <div class="test3"></div>
+            {{pass}}
+            {{if r['post_dietary_restriction'] == "Gluten free":}}
+                <img src="{{=URL('static','images/Gluten_20Free.jpg')}}" alt="Gluten free">
+
+            {{pass}}
+            {{if r['post_dietary_restriction'] == "Pescetarian":}}
+                <img src="{{=URL('static','images/pescetarianDiet.jpg')}}" alt="Pescetarian">
+
+            {{pass}}
+            {{if r['post_dietary_restriction'] == "Kosher":}}
+                <img src="{{=URL('static','images/Kosher.jpg')}}" alt="Kosher">
+
+            {{pass}}
+            {{if r['post_dietary_restriction'] == "Alcohol free":}}
+                <img src="{{=URL('static','images/alcohol_free.jpg')}}" alt="Alcohol free">
+
+            {{pass}}
+            {{if r['post_dietary_restriction'] == "dairy product free":}}
+                <img src="{{=URL('static','images/dairy-free.jpg')}}" alt="dairy product free">
+
+            {{pass}}
+            </div>
         </div>
+
+
+
+
         <div class="recipe_details">
             <div class="rating">
                 <div class="head"><strong>Rating:</strong></div>
