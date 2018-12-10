@@ -1,5 +1,62 @@
 /* line 1, ../sass/_main.scss */
 div.main_content {
+    
+}
+#pic1{
+   width: 100%;
+   position: relative;
+}
+#pic2{
+   width: 100%;
+}
+#pic3{
+   width: 100%;
+}
+#main_content{
+   margin:0;
+}
+#startBrowsing .btn{
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+#container{
+ width: 100%;
+ padding: 0;
+ margin: 0;
+ height: 100%;
+
+}
+.carousel-inner{
+  width: 100%;
+  position: relative;
+  height: 100%;
+}
+#jumbotron{
+  position: absolute;
+  top: 250px;
+  width: 100%;
+  height: 300px;
+  z-index: 2;
+  text-align: center; 
+  background:rgba(255,255,255, 0.5);
+  font-family: helvetica;
+}
+#main_content #jumbotron .h1{
+  font-size: 75px;
+  margin-top:50 px; 
+}
+.h4{
+ font-size: 25px;
+}
+.img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+div.main_content .blue.padded {
+    background-color: #FFFFFF;
+}
     padding: 10px;
 }
 
@@ -10,6 +67,7 @@ div.main_content .btn {
 div.main_content .blue.padded {
     background-color: #FFFFFF;
 }
+
 
 /* line 4, ../sass/_main.scss */
 div.main_content div.post {
