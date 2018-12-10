@@ -101,7 +101,10 @@ def delete_reply():
 @auth.requires_login()
 def add():
     """More sophisticated way, in which we use web2py to come up with the form."""
-    form = SQLFORM(db.post)
+
+    record = db.post(request.args(0))
+    form = SQLFORM(db.post, record, upload=URL('download'))
+    form.add_button(T('Cancel'), URL(r=request, f='index'))
     # We can process the form.  This will check that the request is a POST,
     # and also perform validation, but in this case there is no validation.
     # THIS process() also inserts.

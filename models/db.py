@@ -71,7 +71,7 @@ auth.settings.extra_fields['auth_user'] = [
     Field('Any_special_dietary_restriction', requires=IS_IN_SET(['', 'Vegetarian', 'gluten free', 'Vegan', 'Pescetarian'
                                                                                                            'Kosher',
                                                                  'Alcohol free', 'dairy product free'])),
-    Field('cooking_skills', requires=IS_IN_SET(['Newbee', 'Average', 'Pro']))]
+    Field('cooking_skills', requires=IS_IN_SET(['Newbie', 'Average', 'Pro']))]
 # create all tables needed by auth if not custom tables
 auth.define_tables(username=True, signature=False)
 
