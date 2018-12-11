@@ -29,11 +29,15 @@ response.google_analytics_id = None
 # ----------------------------------------------------------------------------------------------------------------------
 
 response.menu = [
-    (T('Main Page'), False, URL('default', 'landing'), []),
-    (T('Start Browsing'), False, URL('default', 'index'), [])
+    (T('Recipeasy'), False, URL('default', 'landing'), []),
+    (T('Start Browsing'), False, URL('default', 'index'), []),
+    (T('Category'), False, '#', [
+        (T('Meat Lover'), False, URL('default', 'entry1')),
+        (T('Vegetarian'), False, URL('default', 'entry2')),
+    ])
 ]
 
-DEVELOPMENT_MENU = True
+DEVELOPMENT_MENU = False
 
 
 # ----------------------------------------------------------------------------------------------------------------------
@@ -55,7 +59,7 @@ def _():
             (T('Vegetarian'), False, URL('default', 'entry2')),
         ]),
         (T('Admin Page'), False, URL('admin', 'default', 'site')),
-        #(T('Sample Menu 2'), False, URL('default', 'index'))
+        # (T('Sample Menu 2'), False, URL('default', 'index'))
     ]
 
 
