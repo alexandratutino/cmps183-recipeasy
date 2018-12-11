@@ -9,11 +9,13 @@
 # -------------------------------------------------------------------------
 
 import datetime
-
-
 def index():
+    return dict()
+
+
+def snack():
     result = []  # We will accummulate the result here.
-    for r in db(db.post.id > 0).select():
+    for r in db(db.post.post_type_of_meal.contains('Snacks')).select():
         # This is a loop over all the posts.
 
         # Each post can have replies; you need to read here the list of replies.
@@ -44,9 +46,466 @@ def index():
     return dict(rows=result)
 
 
-def landing():
-    return dict()
+def brunch():
+    result = []  # We will accummulate the result here.
+    for r in db(db.post.post_type_of_meal.contains('Brunch')).select():
+        # This is a loop over all the posts.
 
+        # Each post can have replies; you need to read here the list of replies.
+        # As each reply has an author and a content, a list of dictionaries seems
+        # appropriate here.
+        reply_list = []
+        replies = db(db.reply.post_id == r.id).select(orderby=db.reply.reply_time)
+        for reply in replies:
+            reply_list.append(dict(
+                reply_id=reply.id,
+                reply_author=reply.reply_author,
+                reply_content=reply.reply_content,
+            ))
+
+        result.append(dict(
+            post_title=r.post_title,
+            post_author=r.post_author,
+            post_dietary_restriction=r.post_dietary_restriction,
+            post_type_of_meal=r.post_type_of_meal,
+            post_cooktime=r.post_cooktime,
+            post_ingredients=r.post_ingredients,
+            post_instruction=r.post_instruction,
+            reply_list=reply_list,
+            id=r.id,
+        ))
+
+    logger.info("Result: %r" % result)
+    return dict(rows=result)
+
+
+def dinner():
+    result = []  # We will accummulate the result here.
+    for r in db(db.post.post_type_of_meal.contains('Dinner')).select():
+        # This is a loop over all the posts.
+
+        # Each post can have replies; you need to read here the list of replies.
+        # As each reply has an author and a content, a list of dictionaries seems
+        # appropriate here.
+        reply_list = []
+        replies = db(db.reply.post_id == r.id).select(orderby=db.reply.reply_time)
+        for reply in replies:
+            reply_list.append(dict(
+                reply_id=reply.id,
+                reply_author=reply.reply_author,
+                reply_content=reply.reply_content,
+            ))
+
+        result.append(dict(
+            post_title=r.post_title,
+            post_author=r.post_author,
+            post_dietary_restriction=r.post_dietary_restriction,
+            post_type_of_meal=r.post_type_of_meal,
+            post_cooktime=r.post_cooktime,
+            post_ingredients=r.post_ingredients,
+            post_instruction=r.post_instruction,
+            reply_list=reply_list,
+            id=r.id,
+        ))
+
+    logger.info("Result: %r" % result)
+    return dict(rows=result)
+
+
+def lunch():
+    result = []  # We will accummulate the result here.
+    for r in db(db.post.post_type_of_meal.contains('Lunch')).select():
+        # This is a loop over all the posts.
+
+        # Each post can have replies; you need to read here the list of replies.
+        # As each reply has an author and a content, a list of dictionaries seems
+        # appropriate here.
+        reply_list = []
+        replies = db(db.reply.post_id == r.id).select(orderby=db.reply.reply_time)
+        for reply in replies:
+            reply_list.append(dict(
+                reply_id=reply.id,
+                reply_author=reply.reply_author,
+                reply_content=reply.reply_content,
+            ))
+
+        result.append(dict(
+            post_title=r.post_title,
+            post_author=r.post_author,
+            post_dietary_restriction=r.post_dietary_restriction,
+            post_type_of_meal=r.post_type_of_meal,
+            post_cooktime=r.post_cooktime,
+            post_ingredients=r.post_ingredients,
+            post_instruction=r.post_instruction,
+            reply_list=reply_list,
+            id=r.id,
+        ))
+
+    logger.info("Result: %r" % result)
+    return dict(rows=result)
+
+
+def breakfast():
+    result = []  # We will accummulate the result here.
+    for r in db(db.post.post_type_of_meal.contains('Breakfast')).select():
+        # This is a loop over all the posts.
+
+        # Each post can have replies; you need to read here the list of replies.
+        # As each reply has an author and a content, a list of dictionaries seems
+        # appropriate here.
+        reply_list = []
+        replies = db(db.reply.post_id == r.id).select(orderby=db.reply.reply_time)
+        for reply in replies:
+            reply_list.append(dict(
+                reply_id=reply.id,
+                reply_author=reply.reply_author,
+                reply_content=reply.reply_content,
+            ))
+
+        result.append(dict(
+            post_title=r.post_title,
+            post_author=r.post_author,
+            post_dietary_restriction=r.post_dietary_restriction,
+            post_type_of_meal=r.post_type_of_meal,
+            post_cooktime=r.post_cooktime,
+            post_ingredients=r.post_ingredients,
+            post_instruction=r.post_instruction,
+            reply_list=reply_list,
+            id=r.id,
+        ))
+
+    logger.info("Result: %r" % result)
+    return dict(rows=result)
+
+
+def dessert():
+    result = []  # We will accummulate the result here.
+    for r in db(db.post.post_type_of_meal.contains('Dessert')).select():
+        # This is a loop over all the posts.
+
+        # Each post can have replies; you need to read here the list of replies.
+        # As each reply has an author and a content, a list of dictionaries seems
+        # appropriate here.
+        reply_list = []
+        replies = db(db.reply.post_id == r.id).select(orderby=db.reply.reply_time)
+        for reply in replies:
+            reply_list.append(dict(
+                reply_id=reply.id,
+                reply_author=reply.reply_author,
+                reply_content=reply.reply_content,
+            ))
+
+        result.append(dict(
+            post_title=r.post_title,
+            post_author=r.post_author,
+            post_dietary_restriction=r.post_dietary_restriction,
+            post_type_of_meal=r.post_type_of_meal,
+            post_cooktime=r.post_cooktime,
+            post_ingredients=r.post_ingredients,
+            post_instruction=r.post_instruction,
+            reply_list=reply_list,
+            id=r.id,
+        ))
+
+    logger.info("Result: %r" % result)
+    return dict(rows=result)
+
+
+def alcohol():
+    result = []  # We will accummulate the result here.
+    for r in db(db.post.post_type_of_meal.contains('Alcohol')).select():
+        # This is a loop over all the posts.
+
+        # Each post can have replies; you need to read here the list of replies.
+        # As each reply has an author and a content, a list of dictionaries seems
+        # appropriate here.
+        reply_list = []
+        replies = db(db.reply.post_id == r.id).select(orderby=db.reply.reply_time)
+        for reply in replies:
+            reply_list.append(dict(
+                reply_id=reply.id,
+                reply_author=reply.reply_author,
+                reply_content=reply.reply_content,
+            ))
+
+        result.append(dict(
+            post_title=r.post_title,
+            post_author=r.post_author,
+            post_dietary_restriction=r.post_dietary_restriction,
+            post_type_of_meal=r.post_type_of_meal,
+            post_cooktime=r.post_cooktime,
+            post_ingredients=r.post_ingredients,
+            post_instruction=r.post_instruction,
+            reply_list=reply_list,
+            id=r.id,
+        ))
+
+    logger.info("Result: %r" % result)
+    return dict(rows=result)
+
+
+def dairy_product_free():
+    result = []  # We will accummulate the result here.
+    for r in db(db.post.post_dietary_restriction.contains('dairy product free')).select():
+        # This is a loop over all the posts.
+
+        # Each post can have replies; you need to read here the list of replies.
+        # As each reply has an author and a content, a list of dictionaries seems
+        # appropriate here.
+        reply_list = []
+        replies = db(db.reply.post_id == r.id).select(orderby=db.reply.reply_time)
+        for reply in replies:
+            reply_list.append(dict(
+                reply_id=reply.id,
+                reply_author=reply.reply_author,
+                reply_content=reply.reply_content,
+            ))
+
+        result.append(dict(
+            post_title=r.post_title,
+            post_author=r.post_author,
+            post_dietary_restriction=r.post_dietary_restriction,
+            post_type_of_meal=r.post_type_of_meal,
+            post_cooktime=r.post_cooktime,
+            post_ingredients=r.post_ingredients,
+            post_instruction=r.post_instruction,
+            reply_list=reply_list,
+            id=r.id,
+        ))
+
+    logger.info("Result: %r" % result)
+    return dict(rows=result)
+
+
+def alcohol_free():
+    result = []  # We will accummulate the result here.
+    for r in db(db.post.post_dietary_restriction.contains('Alcohol free')).select():
+        # This is a loop over all the posts.
+
+        # Each post can have replies; you need to read here the list of replies.
+        # As each reply has an author and a content, a list of dictionaries seems
+        # appropriate here.
+        reply_list = []
+        replies = db(db.reply.post_id == r.id).select(orderby=db.reply.reply_time)
+        for reply in replies:
+            reply_list.append(dict(
+                reply_id=reply.id,
+                reply_author=reply.reply_author,
+                reply_content=reply.reply_content,
+            ))
+
+        result.append(dict(
+            post_title=r.post_title,
+            post_author=r.post_author,
+            post_dietary_restriction=r.post_dietary_restriction,
+            post_type_of_meal=r.post_type_of_meal,
+            post_cooktime=r.post_cooktime,
+            post_ingredients=r.post_ingredients,
+            post_instruction=r.post_instruction,
+            reply_list=reply_list,
+            id=r.id,
+        ))
+
+    logger.info("Result: %r" % result)
+    return dict(rows=result)
+
+
+def kosher():
+    result = []  # We will accummulate the result here.
+    for r in db(db.post.post_dietary_restriction.contains('Kosher')).select():
+        # This is a loop over all the posts.
+
+        # Each post can have replies; you need to read here the list of replies.
+        # As each reply has an author and a content, a list of dictionaries seems
+        # appropriate here.
+        reply_list = []
+        replies = db(db.reply.post_id == r.id).select(orderby=db.reply.reply_time)
+        for reply in replies:
+            reply_list.append(dict(
+                reply_id=reply.id,
+                reply_author=reply.reply_author,
+                reply_content=reply.reply_content,
+            ))
+
+        result.append(dict(
+            post_title=r.post_title,
+            post_author=r.post_author,
+            post_dietary_restriction=r.post_dietary_restriction,
+            post_type_of_meal=r.post_type_of_meal,
+            post_cooktime=r.post_cooktime,
+            post_ingredients=r.post_ingredients,
+            post_instruction=r.post_instruction,
+            reply_list=reply_list,
+            id=r.id,
+        ))
+
+    logger.info("Result: %r" % result)
+    return dict(rows=result)
+
+
+def pescetarian():
+    result = []  # We will accummulate the result here.
+    for r in db(db.post.post_dietary_restriction.contains('Pescetarian')).select():
+        # This is a loop over all the posts.
+
+        # Each post can have replies; you need to read here the list of replies.
+        # As each reply has an author and a content, a list of dictionaries seems
+        # appropriate here.
+        reply_list = []
+        replies = db(db.reply.post_id == r.id).select(orderby=db.reply.reply_time)
+        for reply in replies:
+            reply_list.append(dict(
+                reply_id=reply.id,
+                reply_author=reply.reply_author,
+                reply_content=reply.reply_content,
+            ))
+
+        result.append(dict(
+            post_title=r.post_title,
+            post_author=r.post_author,
+            post_dietary_restriction=r.post_dietary_restriction,
+            post_type_of_meal=r.post_type_of_meal,
+            post_cooktime=r.post_cooktime,
+            post_ingredients=r.post_ingredients,
+            post_instruction=r.post_instruction,
+            reply_list=reply_list,
+            id=r.id,
+        ))
+
+    logger.info("Result: %r" % result)
+    return dict(rows=result)
+
+
+def vegan():
+    result = []  # We will accummulate the result here.
+    for r in db(db.post.post_dietary_restriction.contains('Vegan')).select():
+        # This is a loop over all the posts.
+
+        # Each post can have replies; you need to read here the list of replies.
+        # As each reply has an author and a content, a list of dictionaries seems
+        # appropriate here.
+        reply_list = []
+        replies = db(db.reply.post_id == r.id).select(orderby=db.reply.reply_time)
+        for reply in replies:
+            reply_list.append(dict(
+                reply_id=reply.id,
+                reply_author=reply.reply_author,
+                reply_content=reply.reply_content,
+            ))
+
+        result.append(dict(
+            post_title=r.post_title,
+            post_author=r.post_author,
+            post_dietary_restriction=r.post_dietary_restriction,
+            post_type_of_meal=r.post_type_of_meal,
+            post_cooktime=r.post_cooktime,
+            post_ingredients=r.post_ingredients,
+            post_instruction=r.post_instruction,
+            reply_list=reply_list,
+            id=r.id,
+        ))
+
+    logger.info("Result: %r" % result)
+    return dict(rows=result)
+
+
+def gluten_free():
+    result = []  # We will accummulate the result here.
+    for r in db(db.post.post_dietary_restriction.contains('gluten free')).select():
+        # This is a loop over all the posts.
+
+        # Each post can have replies; you need to read here the list of replies.
+        # As each reply has an author and a content, a list of dictionaries seems
+        # appropriate here.
+        reply_list = []
+        replies = db(db.reply.post_id == r.id).select(orderby=db.reply.reply_time)
+        for reply in replies:
+            reply_list.append(dict(
+                reply_id=reply.id,
+                reply_author=reply.reply_author,
+                reply_content=reply.reply_content,
+            ))
+
+        result.append(dict(
+            post_title=r.post_title,
+            post_author=r.post_author,
+            post_dietary_restriction=r.post_dietary_restriction,
+            post_type_of_meal=r.post_type_of_meal,
+            post_cooktime=r.post_cooktime,
+            post_ingredients=r.post_ingredients,
+            post_instruction=r.post_instruction,
+            reply_list=reply_list,
+            id=r.id,
+        ))
+
+    logger.info("Result: %r" % result)
+    return dict(rows=result)
+
+
+def vegetarian():
+    result = []  # We will accummulate the result here.
+    for r in db(db.post.post_dietary_restriction.contains('Vegetarian')).select():
+        # This is a loop over all the posts.
+
+        # Each post can have replies; you need to read here the list of replies.
+        # As each reply has an author and a content, a list of dictionaries seems
+        # appropriate here.
+        reply_list = []
+        replies = db(db.reply.post_id == r.id).select(orderby=db.reply.reply_time)
+        for reply in replies:
+            reply_list.append(dict(
+                reply_id=reply.id,
+                reply_author=reply.reply_author,
+                reply_content=reply.reply_content,
+            ))
+
+        result.append(dict(
+            post_title=r.post_title,
+            post_author=r.post_author,
+            post_dietary_restriction=r.post_dietary_restriction,
+            post_type_of_meal=r.post_type_of_meal,
+            post_cooktime=r.post_cooktime,
+            post_ingredients=r.post_ingredients,
+            post_instruction=r.post_instruction,
+            reply_list=reply_list,
+            id=r.id,
+        ))
+
+    logger.info("Result: %r" % result)
+    return dict(rows=result)
+
+
+def main():
+    result = []  # We will accummulate the result here.
+    for r in db(db.post.id > 0).select():
+        # This is a loop over all the posts.
+
+        # Each post can have replies; you need to read here the list of replies.
+        # As each reply has an author and a content, a list of dictionaries seems
+        # appropriate here.
+        reply_list = []
+        replies = db(db.reply.post_id == r.id).select(orderby=db.reply.reply_time)
+        for reply in replies:
+            reply_list.append(dict(
+                reply_id=reply.id,
+                reply_author=reply.reply_author,
+                reply_content=reply.reply_content,
+            ))
+
+        result.append(dict(
+            post_title=r.post_title,
+            post_author=r.post_author,
+            post_dietary_restriction=r.post_dietary_restriction,
+            post_type_of_meal=r.post_type_of_meal,
+            post_cooktime=r.post_cooktime,
+            post_ingredients=r.post_ingredients,
+            post_instruction=r.post_instruction,
+            reply_list=reply_list,
+            id=r.id,
+        ))
+
+    logger.info("Result: %r" % result)
+    return dict(rows=result)
 
 
 @auth.requires_login()
@@ -102,7 +561,9 @@ def delete_reply():
 @auth.requires_login()
 def add():
     """More sophisticated way, in which we use web2py to come up with the form."""
-    form = SQLFORM(db.post)
+    record = db.post(request.args(0))
+    form = SQLFORM(db.post, record, upload=URL('download'))
+    form.add_button(T('Cancel'), URL(r=request, f='index'))
     # We can process the form.  This will check that the request is a POST,
     # and also perform validation, but in this case there is no validation.
     # THIS process() also inserts.
@@ -173,3 +634,4 @@ def call():
     supports xml, json, xmlrpc, jsonrpc, amfrpc, rss, csv
     """
     return service()
+

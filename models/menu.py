@@ -27,15 +27,27 @@ response.google_analytics_id = None
 # ----------------------------------------------------------------------------------------------------------------------
 
 response.menu = [
-    (T('Recipeasy'), False, URL('default', 'landing'), []),
-    (T('Start Browsing'), False, URL('default', 'index'), []),
+    (T('Recipeasy'), False, URL('default', 'index'), []),
+    (T('Start Browsing'), False, URL('default', 'main'), []),
     (T('Category'), False, '#', [
-        (T('Meat Lover'), False, URL('default', 'entry1')),
-        (T('Vegetarian'), False, URL('default', 'entry2')),
+        (T('Alcohol'), False, URL('default', 'alcohol')),
+        (T('Alcohol free'), False, URL('default', 'alcohol_free')),
+        (T('Breakfast'), False, URL('default', 'breakfast')),
+        (T('Brunch'), False, URL('default', 'brunch')),
+        (T('Dairy product free'), False, URL('default', 'dairy_product_free')),
+        (T('Dessert'), False, URL('default', 'dessert')),
+        (T('Dinner'), False, URL('default', 'dinner')),
+        (T('Gluten free'), False, URL('default', 'gluten_free')),
+        (T('Kosher'), False, URL('default', 'kosher')),
+        (T('Lunch'), False, URL('default', 'lunch')),
+        (T('Pescetarian'), False, URL('default', 'pescetarian')),
+        (T('Snacks'), False, URL('default', 'snack')),
+        (T('Vegan'), False, URL('default', 'vegan')),
+        (T('Vegetarian'), False, URL('default', 'vegetarian')),
     ])
 ]
 
-DEVELOPMENT_MENU = True
+DEVELOPMENT_MENU = False
 
 
 # ----------------------------------------------------------------------------------------------------------------------
