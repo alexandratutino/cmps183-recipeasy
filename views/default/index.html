@@ -18,33 +18,31 @@
 
 {{for r in rows:}}
     <div class="post">
-        <div class="author"><strong>Author:</strong> {{=r['post_author']}}</div>
-        <div class="title"><strong>Title:</strong> {{=r['post_title']}}</div>
 
 
         <div class="images">
             <div class="test1">
             {{if r['post_dietary_restriction'] == "Vegetarian":}}
-                <div id="container">
+                <div id="Container2">
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-                        <ol class="carousel-indicators">
+                        <ol id="indicators" class="carousel-indicators">
                             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                             <li data-target="#myCarousel" data-slide-to="1"></li>
                             <li data-target="#myCarousel" data-slide-to="2"></li>
                         </ol>
 
-                        <div class="carousel-inner">
+                        <div id="carousel_inner" class="carousel-inner">
                             <div id="pic1" class="item active">
-                                <img src="{{=URL('static','images/Vegetarian.jpg')}}" alt="Los Angeles" width="100%">
+                                <img src="{{=URL('static','images/Vegetarian.jpg')}}" alt="Los Angeles" width="50%">
                             </div>
 
                             <div id="pic2" class="item">
-                                <img src="{{=URL('static','images/Vegetarian_2.jpg')}}" alt="Chicago" width="100%">
+                                <img src="{{=URL('static','images/Vegetarian_2.jpg')}}" alt="Chicago" width="50%">
                             </div>
 
                         </div>
-
+			<div id = "arrow_controls">
                         <!-- Left and right controls -->
                         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
                             <span class="glyphicon glyphicon-chevron-left"></span>
@@ -54,6 +52,7 @@
                             <span class="glyphicon glyphicon-chevron-right"></span>
                             <span class="sr-only">Next</span>
                         </a>
+			</div>
                     </div>
                 </div>
 
@@ -85,39 +84,34 @@
             </div>
 
         </div>
+	<div id="all">
+	<div id="credentials">
+        	<div id="Title" class="title"><strong>Title:</strong> {{=r['post_title']}}</div>
+		<div id="author" class="author"><strong>Author:</strong> {{=r['post_author']}}</div>
 
-
-        <div class="recipe_details">
-            <div class="rating">
-                <div class="head"><strong>Rating:</strong></div>
-                <div class="stars">
-                    <!-- Code for start ratings. -->
-                    <div v-if="is_logged_in" class="star_rating">
-              			<span v-on:mouseout="stars_out(post_list._idx)">
-                			<span v-on:mouseover="stars_over(post_list._idx, idx)"
-                                  v-on:click="set_stars(post_list._idx, idx)"
-                                  v-for="idx in star_indices">
-                    				<i v-if="idx <= post_list._num_stars_display" class="fa fa-star"></i>
-                    				<i v-if="idx > post_list._num_stars_display" class="fa fa-star-o"></i>
-                			</span>
-              			</span>
-                    </div>
-                </div>
-            </div>
-            <div class="dietary_restriction"><strong>Dietary restriction:</strong>
-                <p id="dietary_restriction">{{=r['post_dietary_restriction']}}</p>
-            </div>
-
-
-            <div><br></div>
-            <div class="type_of_meal"><strong>Type of meal:</strong> {{=r['post_type_of_meal']}}</div>
-            <div><br></div>
-            <div class="cooktime"><strong>Cook Time:</strong> {{=r['post_cooktime']}}</div>
         </div>
-        <div class="yellowbreak"><br></div>
+	<div class="recipe_details">
+            <div class="rating">
+                <div id="difficulty"><strong>Difficulty Level:</strong></div>
+          	<div class="difficulty_level">
+			 {{=r['post_difficulty']}}
+		</div>
+            </div>
+            <div class="dietary_restriction"><div id="diet"><strong>Dietary restriction:</strong></div>
+                <div id="restrict" style="text-align: center"><p id="dietary_restriction">{{=r['post_dietary_restriction']}}</p></div>
+            </div>
+
+
+            <div><br></div>
+            <div class="type_of_meal"><div id="type"><strong>Type of meal:</strong></div> {{=r['post_type_of_meal']}}</div>
+            <div><br></div>
+            <div class="cooktime"><div id="cook"><strong>Cook Time:</strong></div> {{=r['post_cooktime']}}</div>
+        </div>
+        </div>
+	<div class="yellowbreak"><br></div>
 
         <div class="break"><br></div>
-
+	
         <div class="recipe_description">
             <div class="Ingredients">
                 <div class="header"><h5>Ingredients:</h5></div>
