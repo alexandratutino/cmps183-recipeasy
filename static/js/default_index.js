@@ -12,12 +12,17 @@ var app = function () {
             a.push(b[i]);
         }
     };
-     // Enumerates an array.
-    var enumerate = function(v) { var k=0; return v.map(function(e) {e._idx = k++;});};
+    // Enumerates an array.
+    var enumerate = function (v) {
+        var k = 0;
+        return v.map(function (e) {
+            e._idx = k++;
+        });
+    };
 
-    self.get_posts = function() {
+    self.get_posts = function () {
         $.getJSON(get_post_list_url,
-            function(data) {
+            function (data) {
                 // I am assuming here that the server gives me a nice list
                 // of posts, all ready for display.
                 self.vue.post_list = data.post_list;
@@ -28,6 +33,7 @@ var app = function () {
         );
         console.log("I fired the get");
     };
+<<<<<<< HEAD
     self.count_reply = function(){
 	$.getJSON(get_reply_count, 
             function(data) {
@@ -43,6 +49,10 @@ var app = function () {
 	
     }
     self.process_posts = function() {
+=======
+
+    self.process_posts = function () {
+>>>>>>> sinclair_wrap_up
         // This function is used to post-process posts, after the list has been modified
         // or after we have gotten new posts. 
         // We add the _idx attribute to the posts. 
@@ -51,7 +61,7 @@ var app = function () {
         self.vue.post_list.map(function (e) {
             // Number of stars to display.
             Vue.set(e, '_num_stars_display', e.rating);
-	});
+        });
     };
 
     // Code for star ratings.
@@ -61,13 +71,13 @@ var app = function () {
         p._num_stars_display = p.rating;
     };
 
-    self.stars_over = function(post_idx, star_idx) {
+    self.stars_over = function (post_idx, star_idx) {
         // Hovering over a star; we show that as the number of active stars.
         var p = self.vue.post_list[post_idx];
         p._num_stars_display = star_idx;
     };
 
-    self.set_stars = function(post_idx, star_idx) {
+    self.set_stars = function (post_idx, star_idx) {
         // The user has set this as the number of stars for the post.
         var p = self.vue.post_list[post_idx];
         p.rating = star_idx;
@@ -93,12 +103,17 @@ var app = function () {
             // Star ratings.
             stars_out: self.stars_out,
             stars_over: self.stars_over,
+<<<<<<< HEAD
             set_stars: self.set_stars, 
  	    count_reply: self.count_reply,
 	}
+=======
+            set_stars: self.set_stars
+        }
+>>>>>>> sinclair_wrap_up
 
     });
-     // Gets the posts.
+    // Gets the posts.
     self.get_posts();
 
     return self;
