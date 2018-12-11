@@ -1,17 +1,16 @@
 {{extend 'layout.html'}}
 
 {{block head}}
+<script src="{{=URL('static', 'js/vue.js')}}"></script>
+<script>
+    var get_post_list_url = "{{=URL('api', 'get_post_list')}}";
+    // Stars.
+    var set_stars_url = "{{=URL('api', 'set_stars', user_signature=True)}}";
+    var is_logged_in = {{='false' if auth.user is None else 'true'}};
+</script>
 {{end}}
 
-
-
-
 <div class="main_content">
-
-    <p>
-        <a href="{{=URL('default', 'add')}}" class="btn">Add Post</a>
-    </p>
-
 {{for r in rows:}}
     <div class="post">
         <div class="author"><strong>Author:</strong> {{=r['post_author']}}</div>
@@ -21,81 +20,83 @@
         <div class="images">
             <div class="test1">
             {{if r['post_dietary_restriction'] == "Vegetarian":}}
+                <div id="container">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-                <img src="{{=URL('static','images/Vegetarian.jpg')}}" alt="Vegetarian">
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
 
+                        <div class="carousel-inner">
+                            <div id="pic1" class="item active">
+                                <img src="{{=URL('static','images/Vegetarian.jpg')}}" alt="Los Angeles" width="100%">
+                            </div>
 
-            {{pass}}
-            {{if r['post_dietary_restriction'] == "Vegan":}}
-                <img src="{{=URL('static','images/Vegan.jpg')}}" alt="Vegan">
+                            <div id="pic2" class="item">
+                                <img src="{{=URL('static','images/Vegetarian_2.jpg')}}" alt="Chicago" width="100%">
+                            </div>
 
-            {{pass}}
-            {{if r['post_dietary_restriction'] == "Gluten free":}}
-                <img src="{{=URL('static','images/Gluten_20Free.jpg')}}" alt="Gluten free">
+                        </div>
 
-            {{pass}}
-            {{if r['post_dietary_restriction'] == "Pescetarian":}}
-                <img src="{{=URL('static','images/pescetarianDiet.jpg')}}" alt="Pescetarian">
-
-            {{pass}}
-            {{if r['post_dietary_restriction'] == "Kosher":}}
-                <img src="{{=URL('static','images/Kosher.jpg')}}" alt="Kosher">
-
-            {{pass}}
-            {{if r['post_dietary_restriction'] == "Alcohol free":}}
-                <img src="{{=URL('static','images/alcohol_free.jpg')}}" alt="Alcohol free">
-
-            {{pass}}
-            {{if r['post_dietary_restriction'] == "dairy product free":}}
-                <img src="{{=URL('static','images/dairy-free.jpg')}}" alt="dairy product free">
-
-            {{pass}}
-            </div>
-        <div class="test2">
-            {{if r['post_dietary_restriction'] == "Vegetarian":}}
-
-                <img src="{{=URL('static','images/Vegetarian_2.jpg')}}" alt="Vegetarian">
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
 
             {{pass}}
             {{if r['post_dietary_restriction'] == "Vegan":}}
-                <img src="{{=URL('static','images/Vegan.jpg')}}" alt="Vegan">
+                <img style="width:50%" src="{{=URL('static','images/Vegan.jpg')}}" alt="Vegan">
 
             {{pass}}
             {{if r['post_dietary_restriction'] == "Gluten free":}}
-                <img src="{{=URL('static','images/Gluten_20Free.jpg')}}" alt="Gluten free">
+                <img style="width:50%" src="{{=URL('static','images/Gluten_20Free.jpg')}}" alt="Gluten free">
 
             {{pass}}
             {{if r['post_dietary_restriction'] == "Pescetarian":}}
-                <img src="{{=URL('static','images/pescetarianDiet.jpg')}}" alt="Pescetarian">
+                <img style="width:50%" src="{{=URL('static','images/pescetarianDiet.jpg')}}" alt="Pescetarian">
 
             {{pass}}
             {{if r['post_dietary_restriction'] == "Kosher":}}
-                <img src="{{=URL('static','images/Kosher.jpg')}}" alt="Kosher">
+                <img style="width:50%" src="{{=URL('static','images/Kosher.jpg')}}" alt="Kosher">
 
             {{pass}}
             {{if r['post_dietary_restriction'] == "Alcohol free":}}
-                <img src="{{=URL('static','images/alcohol_free.jpg')}}" alt="Alcohol free">
+                <img style="width:50%" src="{{=URL('static','images/alcohol_free.jpg')}}" alt="Alcohol free">
 
             {{pass}}
             {{if r['post_dietary_restriction'] == "dairy product free":}}
-                <img src="{{=URL('static','images/dairy-free.jpg')}}" alt="dairy product free">
+                <img style="width:50%" src="{{=URL('static','images/dairy-free.jpg')}}" alt="dairy product free">
 
             {{pass}}
             </div>
+
         </div>
-
-
 
 
         <div class="recipe_details">
             <div class="rating">
                 <div class="head"><strong>Rating:</strong></div>
                 <div class="stars">
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
-                    <i class="fa fa-star-o"></i>
+                    <!-- Code for start ratings. -->
+                    <div v-if="is_logged_in" class="star_rating">
+              			<span v-on:mouseout="stars_out(post_list._idx)">
+                			<span v-on:mouseover="stars_over(post_list._idx, idx)"
+                                  v-on:click="set_stars(post_list._idx, idx)"
+                                  v-for="idx in star_indices">
+                    				<i v-if="idx <= post_list._num_stars_display" class="fa fa-star"></i>
+                    				<i v-if="idx > post_list._num_stars_display" class="fa fa-star-o"></i>
+                			</span>
+              			</span>
+                    </div>
                 </div>
             </div>
             <div class="dietary_restriction"><strong>Dietary restriction:</strong>
@@ -115,7 +116,14 @@
         <div class="recipe_description">
             <div class="Ingredients">
                 <div class="header"><h5>Ingredients:</h5></div>
-                <div class="Ingredients_content"> {{=r['post_ingredients']}}</div>
+                <div class="Ingredients_content">
+                    <ul>
+                        <li v-for="(ingredient) in post_ingredients">
+                        {{=r['post_ingredients']}}
+                        </li>
+                    </ul>
+                </div>
+
             </div>
             <div class="instruction"><h5>Instruction:</h5>
                 <div class="instruction_content">{{=r['post_instruction']}}</div>
@@ -165,3 +173,7 @@
 {{pass}}
 
 </div>
+
+
+
+
