@@ -4,7 +4,6 @@
 <script src="{{=URL('static', 'js/vue.js')}}"></script>
 <script>
     var get_post_list_url = "{{=URL('api', 'get_post_list')}}";
-    // Stars.
     var set_stars_url = "{{=URL('api', 'set_stars', user_signature=True)}}";
     var is_logged_in = "{{='false' if auth.user is None else 'true'}}";
 </script>
@@ -13,14 +12,13 @@
 <div class="main_content">
 
     <p>
-    <div id="AddPost"><a href="{{=URL('default', 'add')}}" class="btn">Add Post</a></div>
+    <div id="AddPost"><a href="{{=URL('default', 'add')}}" class="btn">Add My Recipe</a></div>
     </p>
 
 {{for r in rows:}}
     <div class="post">
         <div class="author"><strong>Author:</strong> {{=r['post_author']}}</div>
         <div class="title"><strong>Title:</strong> {{=r['post_title']}}</div>
-
 
         <div class="images">
             <div class="test1">
@@ -36,13 +34,16 @@
 
                         <div class="carousel-inner">
                             <div id="pic1" class="item active">
-                                <img src="{{=URL('static','images/Vegetarian.jpg')}}" alt="Los Angeles" width="100%">
+                                <img src="{{=URL('static','images/Vegetarian.jpg')}}" alt="Food" width="100%">
                             </div>
 
                             <div id="pic2" class="item">
-                                <img src="{{=URL('static','images/Vegetarian_2.jpg')}}" alt="Chicago" width="100%">
+                                <img src="{{=URL('static','images/Vegetarian_2.jpg')}}" alt="Food" width="100%">
                             </div>
 
+                            <div id="pic3" class="item">
+                                <img src="{{=URL('static','images/Vegetarian_3.jpg')}}" alt="Food" width="100%">
+                            </div>
                         </div>
 
                         <!-- Left and right controls -->
@@ -59,27 +60,262 @@
 
             {{pass}}
             {{if r['post_dietary_restriction'] == "Vegan":}}
-                <img style="width:50%" src="{{=URL('static','images/Vegan.jpg')}}" alt="Vegan">
+                <div id="container">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+
+                        <div class="carousel-inner">
+                            <div id="pic1" class="item active">
+                                <img src="{{=URL('static','images/Vegan.jpg')}}" alt="Food" width="100%">
+                            </div>
+
+                            <div id="pic2" class="item">
+                                <img src="{{=URL('static','images/Vegan_2.jpg')}}" alt="Food" width="100%">
+                            </div>
+
+                            <div id="pic3" class="item">
+                                <img src="{{=URL('static','images/Vegan_3.jpg')}}" alt="Food" width="100%">
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
 
             {{pass}}
-            {{if r['post_dietary_restriction'] == "Gluten free":}}
-                <img style="width:50%" src="{{=URL('static','images/Gluten_20Free.jpg')}}" alt="Gluten free">
+            {{if r['post_dietary_restriction'] == "Gluten Free":}}
+                <div id="container">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+
+                        <div class="carousel-inner">
+                            <div id="pic1" class="item active">
+                                <img src="{{=URL('static','images/Gluten_20Free.jpg')}}" alt="Food" width="100%">
+                            </div>
+
+                            <div id="pic2" class="item">
+                                <img src="{{=URL('static','images/Gluten_20Free_2.jpg')}}" alt="Food" width="100%">
+                            </div>
+
+                            <div id="pic3" class="item">
+                                <img src="{{=URL('static','images/Gluten_20Free_3.jpg')}}" alt="Food" width="100%">
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
 
             {{pass}}
             {{if r['post_dietary_restriction'] == "Pescetarian":}}
-                <img style="width:50%" src="{{=URL('static','images/pescetarianDiet.jpg')}}" alt="Pescetarian">
+                <div id="container">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+
+                        <div class="carousel-inner">
+                            <div id="pic1" class="item active">
+                                <img src="{{=URL('static','images/pescetarianDiet.jpg')}}" alt="Food" width="100%">
+                            </div>
+
+                            <div id="pic2" class="item">
+                                <img src="{{=URL('static','images/pescetarianDiet_2.jpg')}}" alt="Food" width="100%">
+                            </div>
+
+                            <div id="pic3" class="item">
+                                <img src="{{=URL('static','images/pescetarianDiet_3.jpg')}}" alt="Food" width="100%">
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
 
             {{pass}}
             {{if r['post_dietary_restriction'] == "Kosher":}}
-                <img style="width:50%" src="{{=URL('static','images/Kosher.jpg')}}" alt="Kosher">
+                <div id="container">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+
+                        <div class="carousel-inner">
+                            <div id="pic1" class="item active">
+                                <img src="{{=URL('static','images/Kosher.jpg')}}" alt="Food" width="100%">
+                            </div>
+
+                            <div id="pic2" class="item">
+                                <img src="{{=URL('static','images/Kosher_2.jpg')}}" alt="Food" width="100%">
+                            </div>
+
+                            <div id="pic3" class="item">
+                                <img src="{{=URL('static','images/Kosher_3.jpg')}}" alt="Food" width="100%">
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
 
             {{pass}}
             {{if r['post_dietary_restriction'] == "Alcohol free":}}
-                <img style="width:50%" src="{{=URL('static','images/alcohol_free.jpg')}}" alt="Alcohol free">
+                <div id="container">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+
+                        <div class="carousel-inner">
+                            <div id="pic1" class="item active">
+                                <img src="{{=URL('static','images/alcohol_free.jpg')}}" alt="Food" width="100%">
+                            </div>
+
+                            <div id="pic2" class="item">
+                                <img src="{{=URL('static','images/alcohol_free_2.jpg')}}" alt="Food" width="100%">
+                            </div>
+
+                            <div id="pic3" class="item">
+                                <img src="{{=URL('static','images/alcohol_free_3.jpg')}}" alt="Food" width="100%">
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
 
             {{pass}}
-            {{if r['post_dietary_restriction'] == "dairy product free":}}
-                <img style="width:50%" src="{{=URL('static','images/dairy-free.jpg')}}" alt="dairy product free">
+            {{if r['post_dietary_restriction'] == "Dairy Product Free":}}
+                <div id="container">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+
+                        <div class="carousel-inner">
+                            <div id="pic1" class="item active">
+                                <img src="{{=URL('static','images/dairy-free.jpg')}}" alt="Food" width="100%">
+                            </div>
+
+                            <div id="pic2" class="item">
+                                <img src="{{=URL('static','images/dairy-free_2.jpg')}}" alt="Food" width="100%">
+                            </div>
+
+                            <div id="pic3" class="item">
+                                <img src="{{=URL('static','images/dairy-free_3.jpg')}}" alt="Food" width="100%">
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+
+            {{pass}}
+            {{if r['post_dietary_restriction'] == "None":}}
+                <div id="container">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+
+                        <div class="carousel-inner">
+                            <div id="pic1" class="item active">
+                                <img src="{{=URL('static','images/Food.jpg')}}" alt="Food" width="100%">
+                            </div>
+
+                            <div id="pic2" class="item">
+                                <img src="{{=URL('static','images/Food_2.jpg')}}" alt="Food" width="100%">
+                            </div>
+
+                            <div id="pic3" class="item">
+                                <img src="{{=URL('static','images/Food_3.jpg')}}" alt="Food" width="100%">
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
 
             {{pass}}
             </div>
