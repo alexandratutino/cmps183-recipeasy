@@ -16,7 +16,7 @@ div.main_content {
    margin:0;
 }
 #startBrowsing .btn{
-    background-color: rgba(255, 0, 0, 0.5);
+    background-color: rgba(255, 0, 0, 0.7);
 }
 
 #container{
@@ -38,7 +38,7 @@ div.main_content {
   height: 300px;
   z-index: 2;
   text-align: center; 
-  background:rgba(255,255,255, 0.5);
+  background:rgba(255,255,255, 0.7);
   font-family: helvetica;
 }
 #main_content #jumbotron .h1{
@@ -207,7 +207,7 @@ div.main_content div.post div.images {
     width: 100%;
 }
 #AddPost .btn{
-     background-color: rgba(255, 0, 0, 0.5);
+     background-color: rgba(255, 0, 0, 0.7);
      width: 30%;
      margin-top: 20px;
      margin-left: 35%;
