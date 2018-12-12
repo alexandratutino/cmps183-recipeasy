@@ -15,26 +15,29 @@ div.main_content {
 #main_content{
    margin:0;
 }
+
 #startBrowsing .btn{
     background-color: rgba(255, 0, 0, 0.7);
 }
 #carousel_inner{
-    height: 90%;
-    width: 100%;
-    margin-left: 375;
+    max-height: 400;
+    width: 60%;
+    margin-left: 420;
     text-align: center;
+
 }
 #Container2{
-    height: 40%;
 
 }
 #indicators{
-    margin-left:-325;
+    margin-left:325;
 }
 
 #arrow_controls{
-    margin-left: 50;
+
     color: rgba(255, 0, 0, 0.5);
+    margin-bottom: 30px;
+
 }
 #container{
  width: 100%;

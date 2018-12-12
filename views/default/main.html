@@ -18,8 +18,6 @@
 
 {{for r in rows:}}
     <div class="post">
-        <div class="author"><strong>Author:</strong> {{=r['post_author']}}</div>
-        <div class="title"><strong>Title:</strong> {{=r['post_title']}}</div>
 
 
         <div class="images">
@@ -36,14 +34,14 @@
 
                         <div id="carousel_inner" class="carousel-inner">
                             <div id="pic1" class="item active">
-                                <img src="{{=URL('static','images/Vegetarian.jpg')}}" alt="Food" width="100%">
+                                <img src="{{=URL('static','images/Vegetarian.jpg')}}" alt="Food" >
                             </div>
 
                             <div id="pic2" class="item">
-                                <img src="{{=URL('static','images/Vegetarian_2.jpg')}}" alt="Food" width="100%">
+                                <img src="{{=URL('static','images/Vegetarian_2.jpg')}}" alt="Food" >
                             </div>
                             <div id="pic3" class="item">
-                                <img src="{{=URL('static','images/Vegetarian_3.jpg')}}" alt="Food" width="100%">
+                                <img src="{{=URL('static','images/Vegetarian_3.jpg')}}" alt="Food" >
                             </div>
                         </div>
                         <div id="arrow_controls">
@@ -73,15 +71,15 @@
 
                         <div id="carousel_inner" class="carousel-inner">
                             <div id="pic1" class="item active">
-                                <img src="{{=URL('static','images/Vegan_1.jpg')}}" alt="Los Angeles" width="100%">
+                                <img src="{{=URL('static','images/Vegan_1.jpg')}}" alt="Los Angeles" >
                             </div>
 
                             <div id="pic2" class="item">
-                                <img src="{{=URL('static','images/Vegan_2.jpg')}}" alt="Chicago" width="100%">
+                                <img src="{{=URL('static','images/Vegan_2.jpg')}}" alt="Chicago" >
                             </div>
 
                             <div id="pic2" class="item">
-                                <img src="{{=URL('static','images/Vegan_3.jpg')}}" alt="Chicago" width="100%">
+                                <img src="{{=URL('static','images/Vegan_3.png')}}" alt="Chicago" >
                             </div>
 
                         </div>
@@ -100,7 +98,7 @@
                 </div>
 
             {{pass}}
-            {{if r['post_dietary_restriction'] == "Gluten free":}}
+            {{if r['post_dietary_restriction'] == "gluten free":}}
                 <div id="container2">
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
                         <ol id="indicators" class="carousel-indicators">
@@ -112,14 +110,14 @@
 
                         <div id="carousel_inner" class="carousel-inner">
                             <div id="pic1" class="item active">
-                                <img src="{{=URL('static','images/Gluten_20Free.jpg')}}" alt="Food" width="100%">
+                                <img src="{{=URL('static','images/Gluten_20Free.jpg')}}" alt="Food">
                             </div>
 
                             <div id="pic2" class="item">
-                                <img src="{{=URL('static','images/Gluten_20Free_2.jpg')}}" alt="Food" width="100%">
+                                <img src="{{=URL('static','images/Gluten_20Free_2.jpg')}}" alt="Food" >
                             </div>
                             <div id="pic3" class="item">
-                                <img src="{{=URL('static','images/Gluten_20Free_3.jpg')}}" alt="Food" width="100%">
+                                <img src="{{=URL('static','images/Gluten_20Free_3.jpeg')}}" alt="Food" >
                             </div>
                         </div>
                         <div id="arrow_controls">
